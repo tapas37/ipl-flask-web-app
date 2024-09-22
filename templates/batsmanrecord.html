@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Batsman Record</title>
+</head>
+<body>
+<h1>Batsman Record</h1>
+<form action="/batsman-record" method="get">
+    <label>Select Batsman</label>
+    <select name="batsman">
+        {% for batsman in batsmen %}
+            <option>{{ batsman }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <input type="submit" value="Get Record">
+</form>
+
+{% if record %}
+    <ul>
+        {% for key, value in record.items() %}
+            <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+</body>
+</html>

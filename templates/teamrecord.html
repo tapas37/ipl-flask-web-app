@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Team Record</title>
+</head>
+<body>
+<h1>Team Record</h1>
+<form action="/team-record" method="get">
+    <label>Select Team</label>
+    <select name="team">
+        {% for team in teams %}
+            <option>{{ team }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <input type="submit" value="Get Record">
+</form>
+
+{% if record %}
+    <ul>
+        {% for key, value in record.items() %}
+            <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+</body>
+</html>
